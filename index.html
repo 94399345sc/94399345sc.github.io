@@ -563,7 +563,6 @@
     <a href="#about">About</a>
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
-    <a href="#games">Games</a>
     <a href="#resume">Resume</a>
     <a href="#contact">Contact</a>
   </div>
@@ -580,7 +579,7 @@
     <div class="hero-badge">Available from April 2026 · Singapore</div>
     <h1 class="hero-name">Chua Siok Cheng</h1>
     <div class="hero-role">AI / Machine Learning Engineer</div>
-    <p class="hero-tagline">Building intelligent systems — from anomaly detection to AI content pipelines</p>
+    <p class="hero-tagline">Building AI-automated content pipelines — from raw concept to multi-channel video at scale</p>
     <div class="hero-available">● Open to new opportunities</div>
     <div class="hero-cta">
       <a href="Chua_Siok_Cheng_Resume_Updated.pdf" class="btn btn-primary" target="_blank" rel="noopener">
@@ -615,9 +614,9 @@
       </div>
     </div>
     <div class="about-text fade-in fade-in-delay-2">
-      <p>I'm an <strong>AI/ML Engineer</strong> with hands-on production experience building intelligent systems across OT cybersecurity, AI-driven localization, and content automation. I love the full stack of ML delivery — from raw data pipelines and feature engineering all the way to deployed models and LLM-powered workflows.</p>
-      <p>My background blends <strong>computer science fundamentals</strong> (real-time simulation, game engines, C/C++) with practical AI engineering — giving me a systems mindset that's rare in ML. Whether it's an anomaly detection pipeline ingesting OpenSearch telemetry or a multi-channel YouTube content engine running 5+ videos a day, I build things that work in production.</p>
-      <p>Outside of work, I'm building an automated AI video pipeline as a passion project — end-to-end content generation from concept to YouTube. I have a game dev background too, though these days I'm mostly vibe coding and exploring what's possible with AI.</p>
+      <p>I'm an <strong>AI/ML Engineer</strong> specialising in end-to-end AI content automation. I design and ship production systems that turn a single concept into published video — orchestrating LLMs, image generators, video synthesis, and TTS into fully automated pipelines that run at scale.</p>
+      <p>My background spans <strong>AI/ML engineering</strong> (OT anomaly detection, GenAI localization, content automation) and <strong>computer science fundamentals</strong> (real-time systems, game engines, C/C++) — a rare combo that lets me build things that are both technically rigorous and actually ship. Whether it's a multi-channel YouTube engine cranking out 5+ videos a day or a cloud-deployed LLM workflow, I care about making AI work in production.</p>
+      <p>Right now I'm deep in <strong>AI video pipeline engineering</strong> — automated multi-channel content generation with Claude, Gemini, Kling, and Veo. The whole stack: storyboarding, image gen, video synthesis, audio, captions, and YouTube publish — no manual steps.</p>
 
       <div class="stats-row">
         <div class="stat">
@@ -626,11 +625,11 @@
         </div>
         <div class="stat">
           <span class="stat-num">5+</span>
-          <span class="stat-label">AI/ML Projects</span>
+          <span class="stat-label">Channels Automated</span>
         </div>
         <div class="stat">
-          <span class="stat-num">2</span>
-          <span class="stat-label">Cloud Platforms</span>
+          <span class="stat-num">5+</span>
+          <span class="stat-label">Videos/Day</span>
         </div>
         <div class="stat">
           <span class="stat-num">∞</span>
@@ -697,12 +696,17 @@
           </div>
         </div>
         <div class="skills-category">
-          <div class="skills-category-label">Data & Search</div>
+          <div class="skills-category-label">AI APIs & Media</div>
           <div class="skills-chips">
+            <span class="chip">OpenAI</span>
+            <span class="chip">Claude API</span>
+            <span class="chip">Gemini / Veo</span>
+            <span class="chip">Kling</span>
+            <span class="chip">DALL-E</span>
+            <span class="chip">YouTube Data API</span>
+            <span class="chip">Telegram Bot API</span>
             <span class="chip">OpenSearch</span>
             <span class="chip">FastAPI</span>
-            <span class="chip">Alpaca API</span>
-            <span class="chip">Telegram Bot API</span>
           </div>
         </div>
       </div>
@@ -775,54 +779,141 @@
   <div class="fade-in">
     <div class="section-label">03 / Projects</div>
     <h2 class="section-title">What I've <span>Built</span></h2>
+    <p style="color:var(--text-muted);max-width:700px;margin-bottom:2rem;font-size:1.05rem">Focused on AI-automated video pipelines, GenAI workflows, and production ML systems. The featured project below is my main build right now.</p>
     <div class="section-divider"></div>
   </div>
+  <!-- Featured project: full-width card -->
+  <style>
+    .project-card-featured {
+      background: var(--navy2);
+      border: 1px solid rgba(6,182,212,0.4);
+      border-radius: var(--radius);
+      padding: 2.25rem 2.5rem;
+      margin-bottom: 1.5rem;
+      position: relative; overflow: hidden;
+      transition: all var(--transition);
+    }
+    .project-card-featured::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent));
+      background-size: 200% auto;
+      animation: shimmer 3s linear infinite;
+    }
+    @keyframes shimmer { to { background-position: 200% center; } }
+    .project-card-featured:hover { box-shadow: 0 20px 60px rgba(6,182,212,0.15); }
+    .featured-header {
+      display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;
+    }
+    .featured-icon {
+      width: 52px; height: 52px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(6,182,212,0.2), rgba(139,92,246,0.2));
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.75rem; flex-shrink: 0;
+    }
+    .featured-meta { flex: 1; }
+    .featured-title { font-weight: 800; font-size: 1.3rem; color: var(--text); }
+    .featured-subtitle { font-size: 0.85rem; color: var(--accent); font-family: 'JetBrains Mono', monospace; margin-top: 0.15rem; }
+    .featured-body {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+    }
+    @media (max-width: 768px) { .featured-body { grid-template-columns: 1fr; } }
+    .featured-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+    .featured-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;
+    }
+    .featured-stat {
+      background: var(--navy3);
+      border-radius: 8px; padding: 0.75rem 1rem;
+      text-align: center;
+    }
+    .featured-stat-num { font-size: 1.4rem; font-weight: 800; color: var(--accent); display: block; }
+    .featured-stat-label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .featured-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.25rem; }
+    .featured-link {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.82rem; color: var(--accent); font-weight: 600;
+      margin-top: 1rem;
+      transition: color var(--transition);
+    }
+    .featured-link:hover { color: #fff; }
+    .featured-link svg { width: 14px; height: 14px; }
+  </style>
+
+  <!-- ★ Featured: AI Content Pipeline -->
+  <div class="project-card-featured fade-in">
+    <div class="featured-header">
+      <div class="featured-icon">🎬</div>
+      <div class="featured-meta">
+        <div class="featured-title">theOrangeContent — AI Video Pipeline <span class="project-status wip">ACTIVE</span></div>
+        <div class="featured-subtitle">End-to-end automated content factory · 5 YouTube channels · 5+ videos/day</div>
+      </div>
+    </div>
+    <div class="featured-body">
+      <div>
+        <p class="featured-desc">
+          A fully automated AI video production system. One pipeline takes a raw concept and produces a publish-ready YouTube video — no manual steps.
+          The stack orchestrates <strong>Claude</strong> (scripting, storyboarding), <strong>DALL-E / Kling</strong> (image &amp; video generation),
+          <strong>Google Veo</strong> (video synthesis), and <strong>OpenAI TTS</strong> (narration) into a single FastAPI-driven workflow.
+        </p>
+        <p class="featured-desc" style="margin-top:0.75rem">
+          Runs 5 channels in parallel — horror, education, kids learning, AI creatures, and meme content — each with its own genre engine,
+          beat scheduling, caption renderer, and age-tiered output. Auto-uploads to YouTube via OAuth, sends approval previews via Telegram,
+          and tracks state across pipeline stages to recover from partial failures.
+        </p>
+        <a href="https://github.com/94399345sc/theOrangeContent" class="featured-link" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub
+        </a>
+      </div>
+      <div>
+        <div class="featured-stats">
+          <div class="featured-stat">
+            <span class="featured-stat-num">5</span>
+            <span class="featured-stat-label">YT Channels</span>
+          </div>
+          <div class="featured-stat">
+            <span class="featured-stat-num">5+</span>
+            <span class="featured-stat-label">Videos / Day</span>
+          </div>
+          <div class="featured-stat">
+            <span class="featured-stat-num">8+</span>
+            <span class="featured-stat-label">AI APIs</span>
+          </div>
+          <div class="featured-stat">
+            <span class="featured-stat-num">0</span>
+            <span class="featured-stat-label">Manual Steps</span>
+          </div>
+        </div>
+        <div class="featured-tags">
+          <span class="project-tag">Claude API</span>
+          <span class="project-tag">Gemini</span>
+          <span class="project-tag">Veo</span>
+          <span class="project-tag">Kling</span>
+          <span class="project-tag">DALL-E</span>
+          <span class="project-tag">OpenAI TTS</span>
+          <span class="project-tag">FastAPI</span>
+          <span class="project-tag">YouTube API</span>
+          <span class="project-tag">Streamlit</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">GCP</span>
+          <span class="project-tag">Automation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="projects-grid">
 
-    <!-- theOrangeTrade -->
-    <div class="project-card fade-in">
-      <div class="project-icon">📈</div>
-      <div>
-        <span class="project-title">theOrangeTrade</span>
-        <span class="project-status wip">ACTIVE</span>
-      </div>
-      <p class="project-desc">Aggressive algorithmic trading bot system with a multi-strategy engine. Includes Telegram integration for real-time alerts, FastAPI backend, and a Streamlit dashboard. Currently paper trading on Alpaca at $100k — moving to live.</p>
-      <div class="project-tags">
-        <span class="project-tag">Python</span>
-        <span class="project-tag">FastAPI</span>
-        <span class="project-tag">Streamlit</span>
-        <span class="project-tag">Alpaca API</span>
-        <span class="project-tag">Telegram Bot</span>
-        <span class="project-tag">Algo Trading</span>
-      </div>
-    </div>
-
-    <!-- AI Content Pipeline -->
-    <div class="project-card fade-in fade-in-delay-1">
-      <div class="project-icon">🎬</div>
-      <div>
-        <span class="project-title">AI Content Pipeline</span>
-        <span class="project-status wip">ACTIVE</span>
-      </div>
-      <p class="project-desc">YouTube content automation across 5 channels, producing 5+ videos per day. Full pipeline: script → storyboard → image → video → audio → publish. Orchestrates Claude, Gemini, DALL-E, Kling, and Veo APIs.</p>
-      <div class="project-tags">
-        <span class="project-tag">Claude API</span>
-        <span class="project-tag">Gemini</span>
-        <span class="project-tag">DALL-E</span>
-        <span class="project-tag">Kling</span>
-        <span class="project-tag">Veo</span>
-        <span class="project-tag">Automation</span>
-        <span class="project-tag">Python</span>
-      </div>
-    </div>
-
     <!-- GenAI Localization -->
-    <div class="project-card fade-in fade-in-delay-2">
+    <div class="project-card fade-in">
       <div class="project-icon">🌍</div>
       <div>
         <span class="project-title">GenAI Localization &amp; Dubbing</span>
       </div>
-      <p class="project-desc">AI workflows for translation adaptation, dubbing, and short-form film/video localization. Built avatar-based ad generation pipelines and AI-assisted script creation from app store content at Lifegame.</p>
+      <p class="project-desc">AI workflows for translation adaptation, dubbing, and short-form film/video localization at Lifegame. Built avatar-based ad generation pipelines and AI-assisted script creation from app store content using GCP Cloud Workflows.</p>
       <div class="project-tags">
         <span class="project-tag">GCP</span>
         <span class="project-tag">Cloud Workflows</span>
@@ -834,7 +925,7 @@
     </div>
 
     <!-- OT Anomaly Detection -->
-    <div class="project-card fade-in">
+    <div class="project-card fade-in fade-in-delay-1">
       <div class="project-icon">🛡️</div>
       <div>
         <span class="project-title">OT Network Anomaly Detection</span>
@@ -850,141 +941,32 @@
       </div>
     </div>
 
-    <!-- Automated Video Generation -->
-    <div class="project-card fade-in fade-in-delay-1">
+    <!-- AI Agents & Orchestration -->
+    <div class="project-card fade-in fade-in-delay-2">
       <div class="project-icon">🤖</div>
       <div>
-        <span class="project-title">Automated Video Generation</span>
+        <span class="project-title">AI Agent Orchestration</span>
         <span class="project-status wip">ONGOING</span>
       </div>
-      <p class="project-desc">AI-assisted workflows for script generation, content assembly, and fully automated video creation. Covers storyboarding, image generation, video synthesis, and audio integration into a single automated pipeline.</p>
+      <p class="project-desc">Multi-agent pipeline architecture where AI agents collaborate across roles — director, implementer, reviewer. Automated coding, content generation, and workflow execution via orchestrated Claude subagents and custom tooling.</p>
       <div class="project-tags">
-        <span class="project-tag">GenAI</span>
-        <span class="project-tag">Video Synthesis</span>
+        <span class="project-tag">Claude</span>
+        <span class="project-tag">Multi-Agent</span>
         <span class="project-tag">Workflow Automation</span>
         <span class="project-tag">Python</span>
-      </div>
-    </div>
-
-    <!-- OpenClaw -->
-    <div class="project-card fade-in fade-in-delay-2">
-      <div class="project-icon">⚙️</div>
-      <div>
-        <span class="project-title">OpenClaw + AI Workflow Setup</span>
-        <span class="project-status wip">ONGOING</span>
-      </div>
-      <p class="project-desc">Self-hosted AI tooling environment with cloud-based deployment and workflow automation. Infrastructure for running local LLMs, managing API integrations, and orchestrating multi-step AI pipelines.</p>
-      <div class="project-tags">
-        <span class="project-tag">Self-hosted AI</span>
-        <span class="project-tag">Docker</span>
-        <span class="project-tag">Cloud Deployment</span>
-        <span class="project-tag">Linux</span>
-        <span class="project-tag">CI/CD</span>
+        <span class="project-tag">FastAPI</span>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ─── GAME PORTFOLIO ─── -->
-<section id="games">
-  <div class="fade-in">
-    <div class="section-label">04 / Game Dev</div>
-    <h2 class="section-title">Interactive Media &amp; <span>Game Dev</span></h2>
-    <div class="section-divider"></div>
-    <p class="games-intro">From game development roots to AI engineering — these projects shaped my technical foundation. Built from scratch during my CS degree at DigiPen, these games taught me low-level systems programming, real-time rendering, and engine architecture.</p>
-  </div>
 
-  <div class="games-grid">
-
-    <!-- HighTeas -->
-    <div class="game-card fade-in">
-      <div class="game-video-wrap">
-        <iframe
-          src="https://drive.google.com/file/d/1JEh66110_Bpu1A0t5au88ZcSGisvDjDS/preview"
-          allow="autoplay"
-          loading="lazy"
-          title="HighTeas Gameplay"
-        ></iframe>
-      </div>
-      <div class="game-info">
-        <div class="game-title">HighTeas</div>
-        <p class="game-desc">First 3D game built from scratch using OpenGL. Implemented custom rendering pipeline, scene management, and game logic entirely in C++.</p>
-        <div class="skills-chips">
-          <span class="chip">C++</span>
-          <span class="chip">OpenGL</span>
-          <span class="chip">3D Rendering</span>
-          <span class="chip">Custom Engine</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- LodeStar -->
-    <div class="game-card fade-in fade-in-delay-1">
-      <div class="game-video-wrap">
-        <iframe
-          src="https://drive.google.com/file/d/1znOXOLXXj0SZzHVLlbKxBi_dlrDKqEBF/preview"
-          allow="autoplay"
-          loading="lazy"
-          title="LodeStar / Reach For the Stars Gameplay"
-        ></iframe>
-      </div>
-      <div class="game-info">
-        <div class="game-title">LodeStar / Reach For the Stars</div>
-        <p class="game-desc">First 2D game built from scratch with OpenGL and FMOD audio integration. Custom 2D physics, sprite rendering, and real-time audio using FMOD.</p>
-        <div class="skills-chips">
-          <span class="chip">C++</span>
-          <span class="chip">OpenGL</span>
-          <span class="chip">FMOD</span>
-          <span class="chip">2D Physics</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Scurvy Sailor -->
-    <div class="game-card fade-in fade-in-delay-2">
-      <div class="game-video-wrap">
-        <iframe
-          src="https://drive.google.com/file/d/1pK0LvANznwmQWKcRb8Gyut8EA2P6GhqE/preview"
-          allow="autoplay"
-          loading="lazy"
-          title="Scurvy Sailor Gameplay"
-        ></iframe>
-      </div>
-      <div class="game-info">
-        <div class="game-title">Scurvy Sailor</div>
-        <p class="game-desc">First 2D game built with Alpha Engine. Focused on gameplay design, entity systems, and using an existing engine framework to ship a complete game.</p>
-        <div class="skills-chips">
-          <span class="chip">C++</span>
-          <span class="chip">Alpha Engine</span>
-          <span class="chip">2D Gameplay</span>
-          <span class="chip">Entity Systems</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- MansionBust -->
-    <div class="game-card-static fade-in fade-in-delay-3">
-      <div class="game-static-header">🏚️</div>
-      <div class="game-info">
-        <div class="game-title">MansionBust</div>
-        <p class="game-desc">Keyboard-controlled top-down view game built with Alpha Engine. No video available (ships as an .exe). Focused on top-down movement mechanics, map design, and collision systems.</p>
-        <div class="skills-chips">
-          <span class="chip">C++</span>
-          <span class="chip">Alpha Engine</span>
-          <span class="chip">Top-Down</span>
-          <span class="chip">Collision Systems</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
 
 <!-- ─── RESUME ─── -->
 <section id="resume">
   <div class="fade-in">
-    <div class="section-label">05 / Resume</div>
+    <div class="section-label">04 / Resume</div>
     <h2 class="section-title">My <span>Resume</span></h2>
     <div class="section-divider"></div>
   </div>
@@ -1023,7 +1005,7 @@
 <!-- ─── CONTACT ─── -->
 <section id="contact">
   <div class="fade-in">
-    <div class="section-label">06 / Contact</div>
+    <div class="section-label">05 / Contact</div>
     <h2 class="section-title">Let's <span>Connect</span></h2>
     <div class="section-divider" style="margin:0 auto 2rem"></div>
   </div>
